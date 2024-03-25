@@ -17,3 +17,14 @@ resource "aws_ec2_instance_connect_endpoint" "connect_ec2" {
     Name = "ec2 connect endpoint"
   }
 }
+resource "aws_instance" "JenkinsServer" {
+  ami                    = var.ami
+  instance_type          = var.server_instance_type
+  key_name               = var.key
+  vpc_security_group_ids = [aws_security_group.jenkins_sg.id]
+  subnet_id              = aws_subnet.PublicSub.id
+  count                  = 1
+  tags = {
+    Name = "jenkins"
+  }
+}

@@ -25,11 +25,12 @@ variable "internet_cidr" {
 variable "ami" {
   description = "The ID of the AMI to use for the EC2 instance"
 }
-
 variable "ec2_instance_type" {
   description = "The type of EC2 instance to launch"
 }
-
+variable "server_instance_type" {
+  description = "The type of EC2 instance to launch"
+}
 variable "key" {
   description = "The name of the key pair to use for the EC2 instance"
 }
